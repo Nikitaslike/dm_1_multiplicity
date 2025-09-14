@@ -3,9 +3,9 @@ from operations import (
     cartesian_product, relation_matrix, print_matrix,
     composition_matrix
 )
-def ordered(result_set, universe_list):
-    """Повертає список елементів result_set у порядку, як у universe_list"""
-    return [el for el in universe_list if el in result_set]
+# def ordered(result_set, universe_list):
+#     """Повертає список елементів result_set у порядку, як у universe_list"""
+#     return [el for el in universe_list if el in result_set]
 
 def smart_cast(x: str):
     """Перетворює елемент на int, якщо це число, інакше лишає як рядок"""
@@ -42,13 +42,13 @@ if __name__ == "__main__":
     print("C =", "{" + ", ".join(map(str, C_list)) + "}")
 
     print("\n--- Операції над множинами ---")
-    print("A ∪ B =", ordered(union(A, B), U_list))
-    print("A ∩ B =", ordered(intersection(A, B), U_list))
-    print("A \\ B =", ordered(difference(A, B), U_list))
-    print("B \\ A =", ordered(difference(B, A), U_list))
-    print("A ⊕ B =", ordered(symmetric_diff(A, B), U_list))
-    print("¬A =", ordered(complement(A, U), U_list))
-    print("¬B =", ordered(complement(B, U), U_list))
+    print("A ∪ B =", sorted(union(A, B)))
+    print("A ∩ B =", sorted(intersection(A, B)))
+    print("A \\ B =", sorted(difference(A, B)))
+    print("B \\ A =", sorted(difference(B, A)))
+    print("A ⊕ B =", sorted(symmetric_diff(A, B)))
+    print("¬A =", sorted(complement(A, U)))
+    print("¬B =", sorted(complement(B, U)))
 
     print("\n--- Декартові добутки ---")
     print("A × B =", cartesian_product(A_list, B_list))
