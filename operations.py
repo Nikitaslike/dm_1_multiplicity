@@ -28,11 +28,12 @@ def relation_matrix(A, B, relation):
     return [[1 if relation(a, b) else 0 for b in B] for a in A]
 
 def print_matrix(matrix, A, B):
-    header = "   " + " ".join(str(b) for b in B)
+    """Друк матриці відношення з підписами рядків і стовпців"""
+    header = "    " + " ".join(str(b).rjust(3) for b in B)
     print(header)
     for i, a in enumerate(A):
-        row = " ".join(str(val) for val in matrix[i])
-        print(str(a).rjust(2), row)
+        row = " ".join(str(matrix[i][j]).rjust(3) for j in range(len(B)))
+        print(str(a).rjust(3), row)
 
 def union_rel(R1, R2):
     return R1 | R2

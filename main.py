@@ -60,12 +60,12 @@ if __name__ == "__main__":
     print("A² × B² =", cartesian_product(cartesian_product(A_list, A_list),
                                         cartesian_product(B_list, B_list)))
 
-    print("\n--- Бінарне відношення ---")
+    print("\n--- Бінарне відношення R ⊆ A×B (A == B) ---")
 
     R = relation_matrix(A_list, B_list, lambda a, b: a == b)
     print_matrix(R, A_list, B_list)
 
-    print("\n--- Бінарне відношення S ⊆ B×C (b == c) ---")
+    print("\n--- Бінарне відношення S ⊆ B×C (B == C) ---")
         
     S = relation_matrix(B_list, C_list, lambda b, c: str(b)[0] == str(c)[0])
     print_matrix(S, B_list, C_list)
