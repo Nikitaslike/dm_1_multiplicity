@@ -1,5 +1,5 @@
 from operations import (
-    union, intersection, difference, symmetric_diff, complement,
+    boolean_table_set, union, intersection, difference, symmetric_diff, complement,
     cartesian_product, relation_matrix, print_matrix,
     composition_matrix
 )
@@ -49,6 +49,12 @@ if __name__ == "__main__":
     print("A ⊕ B =", sorted(symmetric_diff(A, B)))
     print("¬A =", sorted(complement(A, U)))
     print("¬B =", sorted(complement(B, U)))
+    
+    print("\n--- Булева таблиця для множини A ---")
+    boolean_table_set(A_list)
+
+    print("\n--- Булева таблиця для множини B ---")
+    boolean_table_set(B_list)
 
     print("\n--- Декартові добутки ---")
     print("A × B =", cartesian_product(A_list, B_list))

@@ -1,3 +1,5 @@
+from itertools import product
+
 # ------------------ ОПЕРАЦІЇ НАД МНОЖИНАМИ ------------------
 
 def union(A, B):
@@ -14,6 +16,21 @@ def symmetric_diff(A, B):
 
 def complement(A, U):
     return set(U) - set(A)  # U \ A
+
+# ------------------ БУЛЕАН ------------------
+
+def boolean_table_set(elements):
+    """
+    Друкує булеву таблицю.
+    """
+    n = len(elements)
+    table = [list(bits) for bits in product([0, 1], repeat=n)]
+    
+    print(" ".join(str(e) for e in elements))
+    for row in table:
+        print(" ".join(str(b) for b in row))
+    
+    return table
 
 # ------------------ ДЕКАРТОВИЙ ДОБУТОК ------------------
 
