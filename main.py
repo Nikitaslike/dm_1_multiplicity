@@ -32,6 +32,8 @@ if __name__ == "__main__":
     A_list = read_list("Введіть множину A: ")
     B_list = read_list("Введіть множину B: ")
     C_list = read_list("Введіть множину C: ")
+    R_list = read_list("Введіть відношення R (елементи у вигляді кортежів, напр. (1,2) (3,4)): ")
+    S_list = read_list("Введіть відношення S (елементи у вигляді кортежів, напр. (1,2) (3,4)): ")
 
     U, A, B, C = to_set(U_list), to_set(A_list), to_set(B_list), to_set(C_list)
 
@@ -59,21 +61,23 @@ if __name__ == "__main__":
     print("\n--- Декартові добутки ---")
     print("A × B =", cartesian_product(A_list, B_list))
     print("\n")
+    print("B x A =", cartesian_product(B_list, A_list)
+    print("\n")
     print("A² =", cartesian_product(A_list, A_list))
     print("\n")
     print("B² =", cartesian_product(B_list, B_list))
     print("\n")
-    print("A² × B² =", cartesian_product(cartesian_product(A_list, A_list),
-                                        cartesian_product(B_list, B_list)))
+    # print("A² × B² =", cartesian_product(cartesian_product(A_list, A_list),
+    #                                     cartesian_product(B_list, B_list)))
 
     print("\n--- Бінарне відношення R ⊆ A×B (A == B) ---")
 
-    R = relation_matrix(A_list, B_list, lambda a, b: a == b)
+    R = R_list
     print_matrix(R, A_list, B_list)
 
     print("\n--- Бінарне відношення S ⊆ B×C (B == C) ---")
-        
-    S = relation_matrix(B_list, C_list, lambda b, c: str(b)[0] == str(c)[0])
+
+    S = S_list
     print_matrix(S, B_list, C_list)
 
     print("\n--- Композиція S∘R ---")
