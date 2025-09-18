@@ -1,4 +1,4 @@
-from itertools import product
+from itertools import combinations, product, chain
 
 # ------------------ ОПЕРАЦІЇ НАД МНОЖИНАМИ ------------------
 
@@ -32,6 +32,16 @@ def boolean_table_set(elements):
     
     return table
 
+def boolean_power(elements):
+    """
+    Повертає булеан множини (усі підмножини).
+    """
+    elems = list(elements)
+    power_set = list(chain.from_iterable(
+        combinations(elems, r) for r in range(len(elems)+1)
+    ))
+    return [set(s) for s in power_set]
+
 # ------------------ ДЕКАРТОВИЙ ДОБУТОК ------------------
 
 def cartesian_product(A, B):
@@ -59,7 +69,7 @@ def intersection_rel(R1, R2):
     return R1 & R2
 
 def complement_rel(R, A, B):
-    """Доповнення відношення: (A×B) \ R"""
+    """Доповнення відношення: (A×B) \\ R"""
     return set((a, b) for a in A for b in B) - R
 
 def composition_rel(R, S, A, B, C):
