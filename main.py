@@ -2,7 +2,7 @@ from operations import (
     union, intersection, difference, symmetric_diff, complement,
     boolean_table_set, cartesian_product,
     relation_matrix, print_matrix,
-    union_rel, intersection_rel, complement_rel, composition_rel, composition_matrix, boolean_power
+    union_rel, intersection_rel, complement_rel, composition_rel, composition_matrix, boolean_power, domain, range_rel, inverse_rel
 )
 
 def read_elements(prompt, as_relation=False, to_set=False):
@@ -40,6 +40,8 @@ if __name__ == "__main__":
 
     R = read_elements("Введіть відношення R (елементи у вигляді [a,b]): ", as_relation=True, to_set=True)
     S = read_elements("Введіть відношення S (елементи у вигляді [b,c]): ", as_relation=True, to_set=True)
+    
+    print("\n№1")
 
     print("\n--- Операції над множинами ---")
     print("A ∪ B =", union(A, B))
@@ -49,19 +51,30 @@ if __name__ == "__main__":
     print("A ⊕ B =", symmetric_diff(A, B))
     print("¬A =", complement(A, U))
     print("¬B =", complement(B, U))
+    
+    print("\n№2")
 
-    print("\n--- Булеан множини A ---")
+    print("\n--- Булеан множини ---")
+    print("Булеан множини A:")
     boolean_table_set(list(A))
 
-    P = boolean_power(A)
-    print(f"Кількість підмножин: {len(P)}")
-    print("Булеан множини A =", [list(s) for s in P])
+    print("Булеан множини B:")
+    boolean_table_set(list(B))
+
+    print("Потужність множини P(A) =", boolean_power(A))
+    print("Потужність множини P(B) =", boolean_power(B))
 
     print("\n---Декартовий добуток ---")
     print("A × B = ", cartesian_product(A, B))
     print("B × A = ", cartesian_product(B, A))
     print("A² = ", cartesian_product(A, A))
     print("B² = ", cartesian_product(B, B))
+    
+    print("\n№3")
+    
+    print("\nОбласть визначення R:", domain(R))
+    print("Область значень R:", range_rel(R))
+    print("Обернене відношення R^{-1}:", inverse_rel(R))
 
     print("\n--- Бінарне відношення R ⊆ A×B (матриця) ---")
     R_mat = relation_matrix(A, B, lambda a, b: (a, b) in R)

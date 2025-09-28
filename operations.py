@@ -17,6 +17,18 @@ def symmetric_diff(A, B):
 def complement(A, U):
     return set(U) - set(A)  # U \ A
 
+def domain(R):
+    """Область визначення (множина a для яких існує (a,b))"""
+    return set(a for a, _ in R)
+
+def range_rel(R):
+    """Область значень (множина b для яких існує (a,b))"""
+    return set(b for _, b in R)
+
+def inverse_rel(R):
+    """Обернене відношення R^{-1}"""
+    return set((b, a) for a, b in R)
+
 # ------------------ БУЛЕАН ------------------
 
 def boolean_table_set(elements):
